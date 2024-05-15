@@ -58,6 +58,7 @@ CREATE TABLE `postulaciones` (
 -- Estructura de tabla para la tabla `us_candidato`
 --
 
+
 CREATE TABLE `us_candidato` (
   `id_candidato` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
