@@ -1,7 +1,9 @@
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
+--
 -- Servidor: 127.0.0.1
+-- Tiempo de generación: 15-05-2024 a las 07:42:13
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -47,9 +49,7 @@ CREATE TABLE `postulaciones` (
   `id_empleos` int(11) NOT NULL,
   `id_candidatos` int(11) NOT NULL,
   `fecha_postulacion` date NOT NULL,
-  `aceptada` varchar(100) NOT NULL,
-  `rechazada` varchar(100) NOT NULL,
-  `pendiente` varchar(100) NOT NULL
+  `confirmacion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
