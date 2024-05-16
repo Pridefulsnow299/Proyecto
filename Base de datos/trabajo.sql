@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-05-2024 a las 07:42:13
+-- Tiempo de generación: 16-05-2024 a las 02:19:45
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -24,18 +24,13 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `empleos`
+-- Estructura de tabla para la tabla `comentarios`
 --
 
-CREATE TABLE `empleos` (
-  `id_empleos` int(11) NOT NULL,
-  `id_empresa` int(11) NOT NULL,
-  `titulo` varchar(100) NOT NULL,
-  `descripcion` varchar(100) NOT NULL,
-  `fecha_publicacion` date NOT NULL,
-  `salario` double NOT NULL,
-  `ubicacion` int(100) NOT NULL,
-  `requisitos` int(100) NOT NULL
+CREATE TABLE `comentarios` (
+  `id_comentario` int(11) NOT NULL,
+  `id_postulacion` int(11) NOT NULL,
+  `comentarios` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -55,6 +50,23 @@ CREATE TABLE `postulaciones` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `puestos`
+--
+
+CREATE TABLE `puestos` (
+  `id_empleos` int(11) NOT NULL,
+  `id_empresa` int(11) NOT NULL,
+  `titulo` varchar(100) NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
+  `fecha_publicacion` date NOT NULL,
+  `salario` double NOT NULL,
+  `ubicacion` int(100) NOT NULL,
+  `requisitos` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `us_candidato`
 --
 
@@ -66,7 +78,8 @@ CREATE TABLE `us_candidato` (
   `correo` varchar(20) NOT NULL,
   `tel` int(11) NOT NULL,
   `exp_laboral` varchar(20) NOT NULL,
-  `educacion` varchar(20) NOT NULL
+  `educacion` varchar(20) NOT NULL,
+  `contrasena` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -89,16 +102,22 @@ CREATE TABLE `us_empresa` (
 --
 
 --
--- Indices de la tabla `empleos`
+-- Indices de la tabla `comentarios`
 --
-ALTER TABLE `empleos`
-  ADD PRIMARY KEY (`id_empleos`);
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id_comentario`);
 
 --
 -- Indices de la tabla `postulaciones`
 --
 ALTER TABLE `postulaciones`
   ADD PRIMARY KEY (`id_postulaciones`);
+
+--
+-- Indices de la tabla `puestos`
+--
+ALTER TABLE `puestos`
+  ADD PRIMARY KEY (`id_empleos`);
 
 --
 -- Indices de la tabla `us_candidato`
@@ -117,16 +136,22 @@ ALTER TABLE `us_empresa`
 --
 
 --
--- AUTO_INCREMENT de la tabla `empleos`
+-- AUTO_INCREMENT de la tabla `comentarios`
 --
-ALTER TABLE `empleos`
-  MODIFY `id_empleos` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `comentarios`
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `postulaciones`
 --
 ALTER TABLE `postulaciones`
   MODIFY `id_postulaciones` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `puestos`
+--
+ALTER TABLE `puestos`
+  MODIFY `id_empleos` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `us_candidato`
