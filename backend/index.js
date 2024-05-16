@@ -145,7 +145,7 @@ servidor.put("/us_candidato",(req,res)=>{
     let contraseña=req.body.contraseña;
     let tel=req.body.tel;
     let exp_laboral=req.body.exp_laboral;
-poolconexion.query("update us_empresa set nombre='"+nombre+"',apellido='"+apellido+"',correo='"+correo+"',tel='"+tel+"',exp_laboral='"+exp_laboral+"',educacion='"+educacion+"' where id=empresa",contraseña='"+contraseña+"',contraseña='"+contraseña+"' + id_candidato,(err,result)=>{
+poolconexion.query("update us_candidato set nombre='"+nombre+"',apellido='"+apellido+"',correo='"+correo+"',tel='"+tel+"',exp_laboral='"+exp_laboral+"',educacion='"+educacion+"' where id=empresa",contraseña='"+contraseña+"',contraseña='"+contraseña+"' + id_candidato,(err,result)=>{
 if(err) throw console.log("error en edicion de datos");
 
 });
@@ -223,7 +223,7 @@ servidor.post("/puestos",(req,res)=>{
     let salario=req.body.salario;
     let ubicacion=req.body.ubicacion;
     let requisitos=req.body.requisitos;
-    let sql=`insert into postulaciones(id_postulacion,id_empresa,titulo,descripcion,fecha_publicacion,salario,ubicacion,requisitos) values('${id_empleos}','${id_empresa}','${titulo}','${descripcion}','${fecha_publicacion}','${salario}'),'${ubicacion}','${requisitos}'`;
+    let sql=`insert into puestos(id_postulacion,id_empresa,titulo,descripcion,fecha_publicacion,salario,ubicacion,requisitos) values('${id_empleos}','${id_empresa}','${titulo}','${descripcion}','${fecha_publicacion}','${salario}'),'${ubicacion}','${requisitos}'`;
     poolconexion.query(sql,(error,result)=>{
         if(error) throw console.log("error de guardado");
         res.send({mensaje:'guardado correctamente '});
