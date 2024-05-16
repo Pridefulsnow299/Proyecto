@@ -59,7 +59,7 @@ servidor.get("/us_empresa",(req,res)=>{
     let sql=`insert into us_empresa(id_empresa,ombre_empresa,ubicacion,correo,contraseña,tell) values('${id_empresa}','${nombre_empresa}','${ubicacion}','${correo}','${contraseña}','${tell}')`;
     poolconexion.query(sql,(error,result)=>{
         if(error) throw console.log("error de guardado");
-        res.send({mensaje:'ok'});
+        res.send({mensaje:'guardado correctamente'});
     });
   });
   //extraccion tabla us_empresa
@@ -107,7 +107,7 @@ servidor.post("/us_candidato",(req,res)=>{
     let sql=`insert into us_candidato(id_candidato,nombre,apellido,correo,tel,exp_laboral,contraseña) values('${nombre}','${id_candidato}','${apellido}','${correo}','${tel}','${exp_laboral}','${contraseña}')`;
     poolconexion.query(sql,(error,result)=>{
         if(error) throw console.log("error de guardado");
-        res.send({mensaje:'ok'});
+        res.send({mensaje:'guardado correctamente'});
     });
     });
 //extraccion tabla us_candidato
@@ -140,6 +140,21 @@ if(err) throw console.log("error en edicion de datos");
 
 });
 });
+
+//TABLA POSTULACIONES
+//guardar tabla postulaciones
+servidor.post("/postulaciones",(req,res)=>{
+    let id_postulacion=req.body.id_postulacion;
+    let id_empleos=req.body.id_empleos;
+    let id_candidato=req.body.id_candidato;
+    let fecha=req.body.fecha;
+    let confirmacion=req.body.confirmacion;
+    let sql=`insert into postulaciones(id_postulacion,id_empleos,id_candidato,fecha,confirmacion) values('${fecha}','${confirmacion}','${id_candidato}','${id_empleos}','${id_postulacion}')`;
+    poolconexion.query(sql,(error,result)=>{
+        if(error) throw console.log("error de guardado");
+        res.send({mensaje:'guardado correctamente '});
+    });
+    });
 
 servidor.listen(proyecto,()=>{
     console.log("servidor en linea proyecto");
