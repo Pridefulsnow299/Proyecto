@@ -314,7 +314,7 @@ servidor.get("/comentarios/:id_comentario",(req,res)=>{
         res.json(result);
     });
 });
-servidor.listen(proyecto,()=>{
+servidor.listen(5555,()=>{
     console.log("servidor en linea proyecto");
 });
 
